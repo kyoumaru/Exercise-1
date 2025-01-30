@@ -1,8 +1,8 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
-        #TODO
-        
+        self.numerator = numerator
+        self.denominator = denominator
         pass
 
     def gcd(a, b):
@@ -18,13 +18,15 @@ class Fraction(object):
         pass
 
     def get_numerator(self):
-        #TODO
+        lowest_numerator = self.numerator / Fraction.gcd(self.numerator, self.denominator)
+        return lowest_numerator
         pass
 
     def get_denominator(self):
-        #TODO
+        lowest_denominator = self.denominator / Fraction.gcd(self.numerator, self.denominator)
+        return lowest_denominator
         pass
 
     def get_fraction(self):
-        #TODO
+        return Fraction.get_numerator()/Fraction.get_denominator()
         pass
