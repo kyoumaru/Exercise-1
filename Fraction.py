@@ -7,13 +7,14 @@ class Fraction(object):
 
     def gcd(a, b):
         #TODO
-        if (a == 0):
-            return b
-        elif (b == 0):
+        if (a == 0 or b == 0):
+            return 0
+        elif (a == b):
             return a
         else:
-            return Fraction.gcd(b, b%a)
-        
+            if (a > b):
+                return Fraction.gcd(b, a-b)
+            return Fraction.gcd(b, b-a)
         pass
 
     def get_numerator(self):
