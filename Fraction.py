@@ -19,14 +19,26 @@ class Fraction(object):
 
     def get_numerator(self):
         lowest_numerator = self.numerator / Fraction.gcd(self.numerator, self.denominator)
-        return lowest_numerator
+        return str(abs(lowest_numerator))
         pass
 
     def get_denominator(self):
         lowest_denominator = self.denominator / Fraction.gcd(self.numerator, self.denominator)
-        return lowest_denominator
+        return str(abs(lowest_denominator))
         pass
 
     def get_fraction(self):
-        return Fraction.get_numerator()/Fraction.get_denominator()
+        # TODO: make it compatible with inputs of the num/denom format
+        #       the invalid checker
+        #       dividing by 0
+
+        #if (self.numerator ):       # checks if not number
+        #    return 0
+        sign = (self.numerator) * (self.denominator)
+        if (sign == 0):
+            return 0
+        elif (sign > 0 ):       # should return [sign] + [numerator] + "/" + [denominator]
+            return Fraction.get_numerator() + "/" + Fraction.get_denominator()
+        else:
+            return "-" + Fraction.get_numerator() + "/" + Fraction.get_denominator()
         pass
