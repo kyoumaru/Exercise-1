@@ -1,8 +1,11 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
-        self.numerator = numerator
-        self.denominator = denominator
+        if (denominator ==0):
+            raise ZeroDivisionError('Denominator is Zero')
+        else:
+            self.numerator = numerator
+            self.denominator = denominator
         pass
 
     def gcd(a, b):
@@ -33,7 +36,6 @@ class Fraction(object):
         #       dividing by 0
 
         #if (self.numerator ):       # checks if not number
-        #    return 0
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
             return 0
