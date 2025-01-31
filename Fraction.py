@@ -32,10 +32,11 @@ class Fraction(object):
 
     def get_fraction(self):
         # TODO: make it compatible with inputs of the num/denom format
-        #       the invalid checker
-        #       dividing by 0
+        #       the invalid checker 
+        
+        #for char in self:
+        #    if 
 
-        #if (self.numerator ):       # checks if not number
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
             return 0
