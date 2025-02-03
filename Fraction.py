@@ -2,28 +2,34 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         if isinstance(numerator, str):
-            if "/" in numerator:
-                num = numerator.split("/",1)
-                try:
-                    self.numerator = int(num[0])
-                    self.denominator = int(num[1])
-                except:
+            if "." in numerator:
                     self.numerator = 0
                     self.denominator = 0
             else:
-                self.numerator = 0
-                self.denominator = 0
+                if "/" in numerator:
+                    num = numerator.split("/",1)
+                    try:
+                        self.numerator = int(num[0])
+                        self.denominator = int(num[1])
+                    except:
+                        self.numerator = 0
+                        self.denominator = 0
+                else:
+                    self.numerator = 0
+                    self.denominator = 0
         else:
             if (denominator ==0):
                 raise ZeroDivisionError('Denominator is Zero')
             else:
-                self.numerator = numerator
-                self.denominator = denominator
+                if not isinstance(numerator, int):
+                    self.numerator = 0
+                    self.denominator = 0
+                else:
+                    self.numerator = numerator
+                    self.denominator = denominator
         pass
 
     def gcd(a, b):
-        #TODO
-
         if (a == 0):
             return 0
         if (b == 0):
@@ -49,14 +55,11 @@ class Fraction(object):
         pass
 
     def get_fraction(self):
-        # TODO: make it compatible with inputs of the num/denom format
-        #       the invalid checker 
-
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
             return "0"
-        elif (sign > 0 ):       # should return [sign] + [numerator] + "/" + [denominator]
-            return str(self.get_numerator()) + "/" + str(self.get_denominator())
+        elif (sign > 0 ):
+            return str(abs(self.get_numerator())) + "/" + str(abs(self.get_denominator()))
         else:
-            return "-" + str(self.get_numerator()) + "/" + str(self.get_denominator())
+            return "-" + str(abs(self.get_numerator())) + "/" + str(abs(self.get_denominator()))
         pass
