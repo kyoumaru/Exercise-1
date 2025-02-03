@@ -31,12 +31,12 @@ class Fraction(object):
 
     def get_numerator(self):
         lowest_numerator = self.numerator / Fraction.gcd(self.numerator, self.denominator)
-        return str(abs(lowest_numerator))
+        return abs(int(lowest_numerator))
         pass
 
     def get_denominator(self):
         lowest_denominator = self.denominator / Fraction.gcd(self.numerator, self.denominator)
-        return str(abs(lowest_denominator))
+        return abs(int(lowest_denominator))
         pass
 
     def get_fraction(self):
@@ -48,9 +48,9 @@ class Fraction(object):
 
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
-            return 0
+            return "0"
         elif (sign > 0 ):       # should return [sign] + [numerator] + "/" + [denominator]
-            return Fraction.get_numerator() + "/" + Fraction.get_denominator()
+            return str(self.get_numerator()) + "/" + str(self.get_denominator())
         else:
-            return "-" + Fraction.get_numerator() + "/" + Fraction.get_denominator()
+            return "-" + str(self.get_numerator()) + "/" + str(self.get_denominator())
         pass
