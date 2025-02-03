@@ -30,8 +30,6 @@ class Fraction(object):
         pass
 
     def gcd(a, b):
-        #TODO
-
         if (a == 0):
             return 0
         if (b == 0):
@@ -57,14 +55,11 @@ class Fraction(object):
         pass
 
     def get_fraction(self):
-        # TODO: make it compatible with inputs of the num/denom format
-        #       the invalid checker 
-
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
             return "0"
-        elif (sign > 0 ):       # should return [sign] + [numerator] + "/" + [denominator]
-            return str(self.get_numerator()) + "/" + str(self.get_denominator())
+        elif (sign > 0 ):
+            return str(abs(self.get_numerator())) + "/" + str(abs(self.get_denominator()))
         else:
-            return "-" + str(self.get_numerator()) + "/" + str(self.get_denominator())
+            return "-" + str(abs(self.get_numerator())) + "/" + str(abs(self.get_denominator()))
         pass
