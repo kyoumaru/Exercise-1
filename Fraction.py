@@ -3,9 +3,13 @@ class Fraction(object):
     def __init__(self, numerator=0, denominator=1):
         if isinstance(numerator, str):
             if "/" in numerator:
-                num = numerator.split("/")
-                self.numerator = int(num[0])
-                self.denominator = int(num[1])
+                num = numerator.split("/",1)
+                try:
+                    self.numerator = int(num[0])
+                    self.denominator = int(num[1])
+                except:
+                    self.numerator = 0
+                    self.denominator = 0
             else:
                 self.numerator = 0
                 self.denominator = 0
