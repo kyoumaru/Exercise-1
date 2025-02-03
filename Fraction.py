@@ -2,23 +2,31 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         if isinstance(numerator, str):
-            if "/" in numerator:
-                num = numerator.split("/",1)
-                try:
-                    self.numerator = int(num[0])
-                    self.denominator = int(num[1])
-                except:
+            if "." in numerator:
                     self.numerator = 0
                     self.denominator = 0
             else:
-                self.numerator = 0
-                self.denominator = 0
+                if "/" in numerator:
+                    num = numerator.split("/",1)
+                    try:
+                        self.numerator = int(num[0])
+                        self.denominator = int(num[1])
+                    except:
+                        self.numerator = 0
+                        self.denominator = 0
+                else:
+                    self.numerator = 0
+                    self.denominator = 0
         else:
             if (denominator ==0):
                 raise ZeroDivisionError('Denominator is Zero')
             else:
-                self.numerator = numerator
-                self.denominator = denominator
+                if not isinstance(numerator, int):
+                    self.numerator = 0
+                    self.denominator = 0
+                else:
+                    self.numerator = numerator
+                    self.denominator = denominator
         pass
 
     def gcd(a, b):
