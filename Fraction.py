@@ -1,11 +1,20 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
-        if (denominator ==0):
-            raise ZeroDivisionError('Denominator is Zero')
+        if isinstance(numerator, str):
+            if "/" in numerator:
+                num = numerator.split("/")
+                self.numerator = int(num[0])
+                self.denominator = int(num[1])
+            else:
+                self.numerator = 0
+                self.denominator = 0
         else:
-            self.numerator = numerator
-            self.denominator = denominator
+            if (denominator ==0):
+                raise ZeroDivisionError('Denominator is Zero')
+            else:
+                self.numerator = numerator
+                self.denominator = denominator
         pass
 
     def gcd(a, b):
