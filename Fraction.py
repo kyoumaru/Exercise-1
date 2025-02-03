@@ -23,32 +23,34 @@ class Fraction(object):
 
     def gcd(a, b):
         #TODO
-        if (a == 0 or b == 0):
+
+        if (a == 0):
             return 0
-        elif (a == b):
-            return a
-        else:
-            if (a > b):
-                return Fraction.gcd(b, a-b)
-            return Fraction.gcd(b, b-a)
+        if (b == 0):
+            return 0
+        
+        a = abs(a)
+        b = abs(b)
+        
+        while(b):
+            a, b = b, a % b
+        return a
+    
         pass
 
     def get_numerator(self):
         lowest_numerator = self.numerator / Fraction.gcd(self.numerator, self.denominator)
-        return abs(int(lowest_numerator))
+        return int(lowest_numerator)
         pass
 
     def get_denominator(self):
         lowest_denominator = self.denominator / Fraction.gcd(self.numerator, self.denominator)
-        return abs(int(lowest_denominator))
+        return int(lowest_denominator)
         pass
 
     def get_fraction(self):
         # TODO: make it compatible with inputs of the num/denom format
         #       the invalid checker 
-        
-        #for char in self:
-        #    if 
 
         sign = (self.numerator) * (self.denominator)
         if (sign == 0):
